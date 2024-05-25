@@ -1,18 +1,26 @@
 # Status
 
-**TODO: Add description**
+Status is an Elixir module that provides pretty print status messages to the terminal. It uses colored output to differentiate between various types of status messages.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `status` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `status` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:status, "~> 0.1.0"}
+    {:status, github: "vectorfrog/status"}
   ]
 end
+```
+
+# Usage
+
+```elixir
+Status.ok("Everything is running smoothly.")
+Status.info("Here's some information.")
+Status.warning("This is a warning.")
+Status.error("An error has occurred.")
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
