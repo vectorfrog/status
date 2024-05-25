@@ -1,18 +1,22 @@
 defmodule Status do
-  @moduledoc """
-  Documentation for `Status`.
-  """
+  # provides pretty print status messages to the terminal
 
-  @doc """
-  Hello world.
+  def ok(msg), do: format(:green, "ok", msg)
 
-  ## Examples
+  def info(msg), do: format(:cyan, "info", msg)
 
-      iex> Status.hello()
-      :world
+  def warning(msg), do: format(:yellow, "warning", msg)
 
-  """
-  def hello do
-    :world
+  def error(msg), do: format(:red, "error", msg)
+
+  defp format(color_atom, token, str) do
+    [:white, "[", color_atom, token, :white, "] ", str]
+    |> print
+  end
+
+  defp print(msg_arr) do
+    msg_arr
+    |> Bunt.ANSI.format()
+    |> IO.puts()
   end
 end
